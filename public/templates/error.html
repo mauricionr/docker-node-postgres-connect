@@ -1,0 +1,9 @@
+<div ng-show="error.show" ng-click="clearError()" id="modal-wrapper">
+	<div id="modal-background"></div>
+	<div id="modal-window">
+		<a class="close" ng-click="clearError()">Close</a>
+		<h2>{{error.title}}</h2>
+		<div ng-bind="error.description"></div>
+		<em>click anywhere to close</em>
+	</div>
+</div>

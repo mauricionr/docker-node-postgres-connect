@@ -1,9 +1,0 @@
-<div class="editorholder" id="{{id}}" ng-class="{'inview' : $root.inview == '{{id}}'}">
-	<h2 >{{title}}</h2>
-	<div ng-model="model" ng-keydown="tabbing($event)" ui-ace="{
-	  useWrapMode : true,
-	  mode: '{{mode}}',
-	  onLoad: aceLoaded,
-	  onChange: aceChanged
-	}"></div>
-</div>

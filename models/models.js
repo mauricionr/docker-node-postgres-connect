@@ -5,32 +5,16 @@ var Sequelize = require('sequelize'),
 	};
 
 // app/model/models.js
-var user = {
+var message_schema = {
 		id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
-		username: { type: Sequelize.STRING, allowNull: false, unique: true},
-		email: { type: Sequelize.STRING, allowNull: false, validate: { isEmail: true }, unique: true },
-		homepage: Sequelize.STRING,
-		password: { type: Sequelize.STRING, allowNull: false }
+		title: { type: Sequelize.STRING, allowNull: false },
+		body: { type: Sequelize.STRING, allowNull: false }
 	};
-var User = connection.define('users', user, opts);
+	
+var Message = connection.define('messages', message_schema, opts);
 
-User.sync();
-
-var	entry = {
-		id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true },
-		title: Sequelize.STRING,
-		input: Sequelize.JSON,
-		transform: Sequelize.TEXT,
-		secret: Sequelize.BOOLEAN
-	};
-var Entry = connection.define('entries', entry, opts);
-
-Entry.belongsTo(User, {foreignKey: 'owner', targetKey: 'username'});
-
-Entry.sync();
-
+connection.sync();
 
 // you can define relationships here
 
-module.exports.User = User;
-module.exports.Entry = Entry;
+module.exports.Message = Message

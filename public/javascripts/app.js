@@ -1,1 +1,0 @@
-var app = angular.module("jsonTester",['ui.ace','ngResource','ngRoute']);

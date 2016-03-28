@@ -1,39 +1,35 @@
 var config = {
 	development: {
-	    //url to be used in link generation
-	    url: 'http://scrupulo.com',
-	    //mongodb connection settings
+
+	    //postgre connection settings
 	    database: {
-	        host:   '127.0.0.1',
-	        port:   '5432',
-	        db:     'transformerapp_dev',
+	        host: 	(process.env.POSTGRES_PORT_5432_TCP_ADDR || "localhost"),
+	        port: 	(process.env.POSTGRES_PORT_5432_TCP_PORT || "5432"),  
+			db:     (process.env.POSTGRES_ENV_POSTGRES_DB || 'myapp'),
 	        dialect:     'postgres',
-	        user:     'transformer',
-	        pass:     'password'
+	        user:     (process.env.POSTGRES_ENV_POSTGRES_USER || 'pg'),
+	        pass:     (process.env.POSTGRES_ENV_POSTGRES_PASSWORD || 'password'),
 	    },
 	    //server details
 	    server: {
-	        host: '127.0.0.1',
 	        port: '44441'
 	    }
 	},
 	production: {
-	    //url to be used in link generation
-	    url: 'http://scrupulo.com',
-	    //mongodb connection settings
+
+	    //postgre connection settings
 	    database: {
-	        host:   '127.0.0.1',
-	        port:   '5432',
-	        db:     'transformerapp_dev',
+	        host: 	(process.env.POSTGRES_PORT_5432_TCP_ADDR || "localhost"),
+	        port: 	(process.env.POSTGRES_PORT_5432_TCP_PORT || "5432"),  
+			db:     (process.env.POSTGRES_ENV_POSTGRES_DB || 'myapp'),
 	        dialect:     'postgres',
-	        user:     'transformer',
-	        pass:     'password'
+	        user:     (process.env.POSTGRES_ENV_POSTGRES_USER || 'pg'),
+	        pass:     (process.env.POSTGRES_ENV_POSTGRES_PASSWORD || 'password'),
 	    },
 	    //server details
 	    server: {
-	        host: '127.0.0.1',
-	        port: '3422'
+	        port: '44441'
 	    }
-	},
+	}
 };
 module.exports = config;

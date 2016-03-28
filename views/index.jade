@@ -1,4 +1,50 @@
 extends layout
 
 block content
-	div(ng-view)
+
+	p= savedMessage
+	hr
+	if message
+		div.message
+			h2.title= message.title
+			span.body= message.body
+			a(href='/') Back home
+		
+		h3 Edit Message
+			form(method='post', action='/'+message.id+'?_method=PUT')
+				input(name='id', type='hidden' value=message.id)
+				label(for='title') Title:
+				input(name='title', type='text' value=message.title)
+				lable(for='body') Body:
+				textarea(name='body', rows='5', cols='15')= message.body
+				input(type='submit',value='save')
+			
+		h3 Delete
+			form(method='post', action='/'+message.id+'?_method=DELETE')
+				input(name='id', type='hidden' value=message.id)
+				input(type='submit',value='save')
+		
+	else if messages.length > 0
+		table
+			tr
+				th Title
+				th Body
+			each msg in messages
+				tr
+					td
+						a(href='/' + msg.id)= msg.title
+					td= msg.body.substr(0,10) + '...'
+	else
+		p No Messages Yet
+	
+	hr
+	
+	if !message
+		div
+			h2 New Message
+			form(method='post', action='/')
+				label(for='title') Title:
+				input(name='title', type='text')
+				lable(for='body') Body:
+				textarea(name='body', rows='5', cols='15')
+				input(type='submit',value='submit')

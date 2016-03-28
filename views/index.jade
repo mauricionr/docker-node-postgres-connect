@@ -22,7 +22,7 @@ block content
 		h3 Delete
 			form(method='post', action='/'+message.id+'?_method=DELETE')
 				input(name='id', type='hidden' value=message.id)
-				input(type='submit',value='save')
+				input(type='submit',value='delete')
 		
 	else if messages.length > 0
 		table

@@ -8,14 +8,15 @@ It uses express to route, and sequelize for ORM.
 The example app is a simple message redording app, letting users save, modify and delete messages (each with a title and body).
 
 To run:
-	docker pull postgres
-	docker pull node
-	docker run --name pg-dse -e POSTGRES_PASSWORD=passwrd -e POSTGRES_USER=pg -e POSTGRES_DB=dse -d postgres
-	docker run -it --rm --name docker-sequalize-example -v "$PWD":/usr/src/app -w /usr/src/app node:latest npm install --no-bin-links
-	docker run -it --rm --name docker-sequalize-example --link pg-dse:postgres -p 8080:44441 -v "$PWD":/usr/src/app -w /usr/src/app node:latest npm run dev
+	$ docker pull postgres
+	$ docker pull node
+	$ docker run --name pg-dse -e POSTGRES_PASSWORD=passwrd -e POSTGRES_USER=pg -e POSTGRES_DB=dse -d postgres
+	$ docker run -it --name node-dse --link pg-dse:postgres -p 8080:44441 -v "$PWD":/usr/src/app -w /usr/src/app -d node:latest npm run dev
+or
+	$ ./run.sh
 	
 That code pulls the latest postgres and node images, sets up a database container, installs the node app and then runs it (using the current volume, so no image needs to be created).
 
 To stop the app, CTRL-C. then:
-	docker stop pg-dse
-	docker rm pg-dse # removes the database container
+	$ docker stop node-dse
+	$ docker stop pg-dse

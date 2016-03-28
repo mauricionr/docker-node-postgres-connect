@@ -1,9 +1,9 @@
-Docker-Sequelizer Example
-=========================
+Docker Node-to-Postgres Connection
+==================================
 
 This is an example application that deploy a node app and a database on separate docker containers using the official postgressql and node images.
 
-It uses express to route, and sequelize for ORM.
+It uses express to route, and sequelize for ORM, but you could manage this all yourself, the important part is getting the information about the connection.
 
 The example app is a simple message recording app, letting users display, create, modify and delete messages (each with a title and body).
 
@@ -61,7 +61,6 @@ POSTGRES_ENV_PGDATA=/var/lib/postgresql/data
 If you want to get into the postgres container to see the table, use `docker -it exec pg-dse psql -U pg -d dse` and then `\d messages` or `select * from messages;`. Type \q to quit and exit the container.
 
 Your app will likely be running at http://192.168.99.100:8080/, if not, use kitematic or `docker-machine ip [machine-name]` to find your machine's ip. It might also simply be running at http://localhost:8080.
-
 
 To stop the app:
 ```

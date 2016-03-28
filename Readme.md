@@ -21,7 +21,20 @@ $ ./run.sh
 	
 That code pulls the latest postgres and node images, sets up a database container, installs the node app and then runs it (using the current volume, so no image needs to be created).
 
-To stop the app, CTRL-C. then:
+Once everything is running, you should see: 
+```
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES
+52b9b8f42564        node:latest         "npm run dev"            9 minutes ago       Up 9 minutes        0.0.0.0:8080->44441/tcp   node-dse
+6a912b4f43a9        postgres            "/docker-entrypoint.s"   9 minutes ago       Up 9 minutes        5432/tcp                  pg-dse
+```
+(your container ID's will differ)
+
+
+Your app will likely be running at http://192.168.99.100:8080/, if not, use kitematic or `docker-machine ip [machine-name]` to find your machine's ip
+
+
+To stop the app:
 ```
 $ docker stop node-dse
 $ docker stop pg-dse

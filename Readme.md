@@ -1,11 +1,11 @@
 Docker-Sequelizer Example
 -------------------------
 
-This is an example application that sets uses the official postgre and node docker images to deploy a node app with a database.
+This is an example application that deploy a node app and a database on separate docker continers using the official postgres and node images.
 
 It uses express to route, and sequelize for ORM.
 
-The example app is a simple message redording app, letting users save, modify and delete messages (each with a title and body).
+The example app is a simple message recording app, letting users save, modify and delete messages (each with a title and body).
 
 To run:
 ```
@@ -19,7 +19,7 @@ or
 $ ./run.sh
 ```
 	
-That code pulls the latest postgres and node images, sets up a database container, installs the node app and then runs it (using the current volume, so no image needs to be created).
+That code pulls the latest postgres and node images, sets up a database container, installs the node app and then runs it (using the current volume, so no image needs to be created). Depending on your docker setup, and if you have an app running on port 8080, you might need to change -p flag the last line in the install to a different port.
 
 Once everything is running, you should see: 
 ```
@@ -31,7 +31,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 (your container ID's will differ)
 
 
-Your app will likely be running at http://192.168.99.100:8080/, if not, use kitematic or `docker-machine ip [machine-name]` to find your machine's ip
+Your app will likely be running at http://192.168.99.100:8080/, if not, use kitematic or `docker-machine ip [machine-name]` to find your machine's ip. It might also simply be running at http://localhost:8080.
 
 
 To stop the app:

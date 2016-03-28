@@ -19,3 +19,15 @@ td {
 .message > * {
 	display: block;
 }
+
+.message h2 {
+	background: #eee;
+	padding: 10px;
+	margin: 0;
+	
+}
+.message div {
+	border: 1px solid #eee;
+	padding: 10px;
+	display: block;
+}

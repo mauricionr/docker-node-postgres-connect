@@ -1,7 +1,7 @@
 doctype html
 html
 	head
-		title= title
+		title= (typeof message !== 'undefined' ? message.title + ' | ' : '') + 'Docker Sequelize'
 		link(rel='stylesheet' href='/stylesheets/style.css')
 	body
 		h1 Messages

@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
 	});
 	
 });
+
 //get a single message
 router.get('/:id', function(req, res, next) {
 	
@@ -33,6 +34,7 @@ router.post('/', function(req, res, next) {
 	});
 });
 
+//update (put) a message
 router.put('/:id', function(req, res, next) { 
     dataobj = req.body;
 	
@@ -45,6 +47,7 @@ router.put('/:id', function(req, res, next) {
 	});
 });
 
+//delete a message
 router.delete('/:id', function(req, res, next) { 
     dataobj = req.body;
 	

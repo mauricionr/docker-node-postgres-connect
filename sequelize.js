@@ -1,6 +1,5 @@
 var config = require('./config')[process.env.NODE_ENV || 'development'];
 
-// app/sequelize.js
 var Sequelize = require('sequelize'),
 	sequelize = new Sequelize(
 		(config.database.db),

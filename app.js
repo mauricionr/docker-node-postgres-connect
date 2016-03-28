@@ -5,25 +5,31 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 var routes = require('./routes/index');
-
 var models = require('./models/models');
-
-var config = require('./config')[process.env.NODE_ENV || 'development'];
-console.log(JSON.stringify(config));
 
 var app = express();
 
+//make our models available throughougt the app
 app.set("models",models);
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+//make parsing forms a bit easier
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+//our public assets
 app.use(express.static(path.join(__dirname, 'public')));
 
+//allows for the use of other methods than POST and GET
 app.use(methodOverride('_method'));
+
+//our routes
 app.use('/', routes);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

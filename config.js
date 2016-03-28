@@ -1,7 +1,5 @@
 var config = {
 	development: {
-
-	    //postgre connection settings
 	    database: {
 	        host: 	(process.env.POSTGRES_PORT_5432_TCP_ADDR || "localhost"),
 	        port: 	(process.env.POSTGRES_PORT_5432_TCP_PORT || "5432"),  
@@ -10,14 +8,11 @@ var config = {
 	        user:     (process.env.POSTGRES_ENV_POSTGRES_USER || 'pg'),
 	        pass:     (process.env.POSTGRES_ENV_POSTGRES_PASSWORD || 'password'),
 	    },
-	    //server details
 	    server: {
-	        port: '44441'
+	        port: (process.env.NODE_APP_PORT || '44441'),
 	    }
 	},
 	production: {
-
-	    //postgre connection settings
 	    database: {
 	        host: 	(process.env.POSTGRES_PORT_5432_TCP_ADDR || "localhost"),
 	        port: 	(process.env.POSTGRES_PORT_5432_TCP_PORT || "5432"),  
@@ -26,10 +21,10 @@ var config = {
 	        user:     (process.env.POSTGRES_ENV_POSTGRES_USER || 'pg'),
 	        pass:     (process.env.POSTGRES_ENV_POSTGRES_PASSWORD || 'password'),
 	    },
-	    //server details
 	    server: {
-	        port: '44441'
+	        port: (process.env.NODE_APP_PORT || '44441'),
 	    }
 	}
 };
+
 module.exports = config;
